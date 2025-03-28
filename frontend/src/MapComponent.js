@@ -87,23 +87,23 @@ const MapComponent = () => {
       {/* Sidebar */}
       <div style={{
         width: '320px',
-        padding: '16px',
-        backgroundColor: '#fefefe',
+        padding: '20px',
+        backgroundColor: '#fff',
         borderRight: '1px solid #ddd',
         overflowY: 'auto',
         boxShadow: '2px 0 4px rgba(0,0,0,0.05)'
       }}>
-        <h2 style={{ fontSize: '18px', marginBottom: '12px' }}>📋 Area Insights</h2>
-        <p><strong>🧠 Businesses found:</strong> {results.length}</p>
-        <p><strong>📏 Area selected:</strong> {area} hectares</p>
+        <h2 style={{ fontSize: '18px', marginBottom: '16px', fontWeight: 600 }}>Area Insights</h2>
+        <p><strong>Businesses found:</strong> {results.length}</p>
+        <p><strong>Area selected:</strong> {area} hectares</p>
 
         <div style={{ marginTop: '16px', marginBottom: '12px' }}>
-          <button onClick={handleReset} style={buttonStyle}>🔄 Clear</button>
-          <button onClick={downloadCSV} style={{ ...buttonStyle, marginLeft: 10 }}>⬇️ Export CSV</button>
+          <button onClick={handleReset} style={buttonStyle}>Clear</button>
+          <button onClick={downloadCSV} style={{ ...buttonStyle, marginLeft: 10 }}>Export CSV</button>
         </div>
 
         <div style={{ marginTop: 20 }}>
-          <h3 style={{ fontSize: '16px', marginBottom: '10px' }}>📍 Businesses</h3>
+          <h3 style={{ fontSize: '16px', marginBottom: '10px' }}>Businesses</h3>
           <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
             {results.map((biz, i) => {
               const coords = JSON.parse(biz.geometry).coordinates;
@@ -113,7 +113,7 @@ const MapComponent = () => {
                     onClick={() => setSelectedPosition([coords[1], coords[0]])}
                     style={sidebarButtonStyle}
                   >
-                    {biz.name} <span style={{ float: 'right' }}>({biz.footfall})</span>
+                    {biz.name} <span style={{ float: 'right' }}>{biz.footfall}</span>
                   </button>
                 </li>
               );
@@ -132,8 +132,8 @@ const MapComponent = () => {
           style={{ height: '100%', width: '100%' }}
         >
           <TileLayer
-          url={`https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}&key=YOUR_API_KEY`}
-          attribution='&copy; <a href="https://www.google.com/maps">Google Maps</a>'
+            url={`https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}&key=YOUR_API_KEY`}
+            attribution='&copy; <a href="https://www.google.com/maps">Google Maps</a>'
           />
 
           <FeatureGroup ref={drawnItemsRef}>
@@ -187,7 +187,7 @@ const buttonStyle = {
 const sidebarButtonStyle = {
   width: '100%',
   textAlign: 'left',
-  background: '#f1f1f1',
+  background: '#f1f5f9',
   border: 'none',
   padding: '8px',
   borderRadius: '4px',
